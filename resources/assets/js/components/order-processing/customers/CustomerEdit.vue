@@ -90,6 +90,10 @@
                   this.selectedGroups = _.map(this.customer.groups.data, group => {
                       return group.id;
                   });
+                  if (!_.isObject(this.customer.details.data)) {
+                      console.log(this.customer.details.data.length)
+                      this.customer.details.data = {}
+                  }
 
                   CandyEvent.$emit('title-changed', {
                       title: this.customer.details.data.firstname + ' ' + this.customer.details.data.lastname

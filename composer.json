@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "getcandy/candy-api": ">=0.2.0",
+        "getcandy/candy-api": ">=0.2.0|dev-elfumy",
         "tightenco/ziggy": "^0.6.9"
     },
     "require-dev": {
@@ -24,6 +24,9 @@
             "providers": [
                 "GetCandy\\Hub\\Providers\\HubServiceProvider"
             ]
+        },
+        "branch-alias": {
+            "dev-elfumy": "0.2.42"
         }
     }
 }

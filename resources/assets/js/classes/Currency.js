@@ -10,7 +10,7 @@ export default {
     getCurrencies() {
         if (!this.currencies.length && !this.fetching) {
             this.fetching = true;
-            axios({
+            return axios({
                 method: 'GET',
                 url: '/api/v1/currencies',
                 headers: {
@@ -18,10 +18,11 @@ export default {
                 }
             })
             .then(response => {
-                this.currencies.push(response.data.data);
                 this.fetching = false;
+                return this.currencies = response.data.data
             })
             .catch(error => {
+                console.log(error)
             });
         }
         return this.currencies;

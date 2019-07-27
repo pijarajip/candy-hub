@@ -23,8 +23,8 @@
                 symbol: '&pound;'
             }
         },
-        mounted() {
-            this.currencies = this.service.getCurrencies();
+        async mounted() {
+            this.currencies = await this.service.getCurrencies();
         },
         watch: {
             currencies() {

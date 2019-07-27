@@ -6,7 +6,7 @@
                 rewards: [],
                 newReward: {
                     type: 'percentage_amount',
-                    amount: ''
+                    value: ''
                 },
                 sortableOptions: {
                     onEnd: this.reorder,
@@ -34,7 +34,7 @@
                 this.rewards.push(this.newReward);
                 this.newReward = {
                     type: 'percentage_amount',
-                    amount: ''
+                    value: ''
                 };
             },
             remove(index) {

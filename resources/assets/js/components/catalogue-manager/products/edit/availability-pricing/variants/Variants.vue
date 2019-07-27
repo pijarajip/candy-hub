@@ -147,8 +147,10 @@
             selectVariant(index) {
                 this.current = this.variants[index];
                 let tax = null;
-                if (this.current.tax.data.id) {
+                if (this.current.tax.data) {
                     tax = this.current.tax.data.id;
+                } else {
+                    tax = ' ';
                 }
 
                 // Need to go through the customer group prices and

@@ -150,7 +150,7 @@
                                         ticks: {
                                             beginAtZero: true,
                                             callback: function(value, index, values) {
-                                                return '£' + value.money();
+                                                return 'Rp' + value.money();
                                             }
                                         },
                                         scaleLabel: {

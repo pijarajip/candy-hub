@@ -42,7 +42,8 @@
                 var set = this.sets[index];
                 set.items.data.push({
                     type: type,
-                    scope: set.scope
+                    scope: set.scope,
+                    eligibles: []
                 });
             },
             addSet() {
@@ -98,7 +99,7 @@
                             </section>
                         </header>
 
-                        <div class="condition clearfix" v-for="(item, itemIndex) in set.items.data" :key="set.id">
+                        <div class="condition clearfix" v-for="(item, itemIndex) in set.items.data" :key="itemIndex">
                             <div class="divider" v-if="itemIndex > 0">
                                 <span v-if="set.scope == 'all'">AND</span>
                                 <span v-else>OR</span>

@@ -21,7 +21,14 @@
             }
         },
         mounted() {
-            this.$set(this.item, 'eligibles', this.payload);
+            if (_.isArray(this.item.eligibles.data)) {
+                this.$set(this, 'selected', this.item.eligibles.data);
+                var mappedItems = _.map(this.item.eligibles.data, item => {
+                    return item.id;
+                });
+                this.$set(this.item, 'eligibles', mappedItems);
+            }
+            // this.$set(this.item, 'eligibles', this.payload);
             /*
             if (!this.payload.value) {
                 this.$set(this.payload, 'value', []);

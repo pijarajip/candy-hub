@@ -22,17 +22,22 @@
             }
         },
         mounted() {
-            this.value = _.map(this.item.eligibles.data, item => {
-                return item.id;
-            });
-            this.selected = this.value;
+            if (_.get(this.item, 'eligibles.data')) {
+                var mappedItems = _.map(this.item.eligibles.data, item => {
+                    return item.id;
+                });
+                this.$set(this.item, 'eligibles', mappedItems);
+            }
             apiRequest.send('GET', 'customers/groups', []).then(response => {
                 this.groups = response.data;
             });
         },
         methods: {
             sync() {
-                this.value = this.selected;
+                var mappedItems = _.map(this.selected, item => {
+                    return item.id;
+                });
+                this.$set(this.item, 'eligibles', mappedItems);
             },
             remove(id) {
                 this.item.criteria.groups.splice(this.item.criteria.groups.indexOf(id), 1);
@@ -59,7 +64,7 @@
                 <tr v-for="group in groups" :key="group.id">
                     <td>
                         <label>
-                            <input type="checkbox" v-model="selected" @change="sync" :value="group.id">
+                            <input type="checkbox" v-model="item.eligibles" :value="group.id">
                             {{ group.name }}
                         </label>
                     </td>
